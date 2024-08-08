@@ -104,15 +104,15 @@ gameButtons.addEventListener("click", function(event){
     console.log("User score: " + humanScore + " --- Computer score: " + computerScore);
 
     let runningScore = document.querySelector(".runningScore");
-    runningScore.textContent = "User score: " + humanScore + " --- Computer score: " + computerScore;
+    runningScore.textContent = "Mortal's score: " + humanScore + " --- God's score: " + computerScore;
 
     if(humanScore === 5){
-        result.textContent = "YOU WIN!";
+        result.textContent = "IMPOSSIBLE! A mere mortal has bested a god. Enjoy your victory, for it is fleeting.";
         humanScore = 0;
         computerScore = 0;
     }
     if (computerScore === 5){
-        result.textContent = "YOU LOSE!";
+        result.textContent = "YOU LOSE, MORTAL! \nBy giving a mere rock the power to think, you have created a GOD!";
         humanScore = 0;
         computerScore = 0;
     }

@@ -112,7 +112,7 @@ gameButtons.addEventListener("click", function(event){
         computerScore = 0;
     }
     if (computerScore === 5){
-        result.textContent = "YOU LOSE, MORTAL! \nBy giving a mere rock the power to think, you have created a GOD!";
+        result.textContent = "YOU LOSE, MORTAL! By giving a mere rock the power to think, you have created a GOD!";
         humanScore = 0;
         computerScore = 0;
     }

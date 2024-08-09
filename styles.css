@@ -70,17 +70,13 @@ img {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    background-color: antiquewhite;
 }
 
 .theMeat {
     display: flex;
     flex-direction: column;
     text-align: center;
-    height: 800px;
-    background-color: antiquewhite;
 }
 
 .roundResult, .runningScore, .result {

@@ -1,1 +1,1 @@
-# rock-paper-scissors
+#1 An attempt to make the rock paper scissors game again but from scratch. This time in console.

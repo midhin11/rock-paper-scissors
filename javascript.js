@@ -39,12 +39,18 @@ function playGame () {
         humanChoice = humanChoice.toLowerCase();
         computerChoice = computerChoice.toLowerCase();
         console.log(`\nYou've chosen ${humanChoice} and your opponent has picked ${computerChoice}!`)
-        if ((humanChoice == "rock" && computerChoice == "rock") || (humanChoice == "paper" && computerChoice == "paper") || (humanChoice == "scissors" && computerChoice == "scissors")){
+        if ((humanChoice == "rock" && computerChoice == "rock") || 
+        (humanChoice == "paper" && computerChoice == "paper") || 
+        (humanChoice == "scissors" && computerChoice == "scissors")){
             console.log("The round is a tie!");
-        } else if ((humanChoice == "rock" && computerChoice == "scissors") || (humanChoice == "paper" && computerChoice == "rock") || (humanChoice == "scissors" && computerChoice == "paper")) {
+        } else if ((humanChoice == "rock" && computerChoice == "scissors") || 
+        (humanChoice == "paper" && computerChoice == "rock") || 
+        (humanChoice == "scissors" && computerChoice == "paper")) {
             console.log("You've won the round!");
             humanScore++;
-        } else if ((humanChoice == "rock" && computerChoice == "paper") || (humanChoice == "paper" && computerChoice == "scissors") || (humanChoice == "scissors" && computerChoice == "rock")){
+        } else if ((humanChoice == "rock" && computerChoice == "paper") || 
+        (humanChoice == "paper" && computerChoice == "scissors") || 
+        (humanChoice == "scissors" && computerChoice == "rock")){
             console.log("You've LOST the round!");
             computerScore++;
         } else {

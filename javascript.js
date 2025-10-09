@@ -1,5 +1,3 @@
-
-
 function getComputerChoice() {
     let computerChoice = "";
     let value = Math.floor(Math.random()*3) + 1;
@@ -14,54 +12,54 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt("Rock, Paper, Scissors?", "");    
+function getHumanChoice(e) {
+    if((e.target.id) === "rock") {
+        humanChoice = "rock"
+    } else if (e.target.id === "paper") {
+        humanChoice = "paper";
+    } else if (e.target.id === "scissors"){
+        humanChoice = "scissors";
+    }
     return humanChoice;
 }
 
-function playGame () {
-    let humanScore = 0;
-    let computerScore = 0;
-    for (let i=0; i<5; i++){
-        let computerSelection = getComputerChoice();
-        let humanSelection = getHumanChoice();
-        playRound(humanSelection, computerSelection)
-    }
-    if(humanScore>computerScore) {
-        console.log("\nYOU'VE WON THE GAME!")
-    } else if (computerScore>humanScore){
-        console.log("\nYOU'VE LOST THE GAME!")
-    } else {
-        console.log("\nTHE GAME IS A TIE!")
-    }
+function playRound(e){
+    
+    let results = document.querySelector(".results");
+    let comment = document.querySelector(".comment");
+    let score = document.querySelector(".score");
+    humanChoice = getHumanChoice(e);
+    computerChoice = getComputerChoice();
 
-    function playRound(humanChoice, computerChoice){
-        humanChoice = humanChoice.toLowerCase();
-        computerChoice = computerChoice.toLowerCase();
-        console.log(`\nYou've chosen ${humanChoice} and your opponent has picked ${computerChoice}!`)
-        if ((humanChoice == "rock" && computerChoice == "rock") || 
-        (humanChoice == "paper" && computerChoice == "paper") || 
-        (humanChoice == "scissors" && computerChoice == "scissors")){
-            console.log("The round is a tie!");
-        } else if ((humanChoice == "rock" && computerChoice == "scissors") || 
-        (humanChoice == "paper" && computerChoice == "rock") || 
-        (humanChoice == "scissors" && computerChoice == "paper")) {
-            console.log("You've won the round!");
-            humanScore++;
-        } else if ((humanChoice == "rock" && computerChoice == "paper") || 
-        (humanChoice == "paper" && computerChoice == "scissors") || 
+    console.log(`\nYou've chosen ${humanChoice} and your opponent has picked ${computerChoice}!`)
+    comment.textContent = `You've chosen ${humanChoice} and your opponent has picked ${computerChoice}`;
+    
+    if ((humanChoice == "rock" && computerChoice == "rock") || 
+    (humanChoice == "paper" && computerChoice == "paper") || 
+    (humanChoice == "scissors" && computerChoice == "scissors")){
+        console.log("The round is a tie!");
+        results.textContent = "The round is a tie!";
+    } else if ((humanChoice == "rock" && computerChoice == "scissors") || 
+    (humanChoice == "paper" && computerChoice == "rock") || 
+    (humanChoice == "scissors" && computerChoice == "paper")) {
+        console.log("You've won the round!");
+        results.textContent = "You've won the round!";
+        humanScore++;
+    } else if ((humanChoice == "rock" && computerChoice == "paper") || 
+    (humanChoice == "paper" && computerChoice == "scissors") || 
         (humanChoice == "scissors" && computerChoice == "rock")){
-            console.log("You've LOST the round!");
-            computerScore++;
-        } else {
-            console.log("Try Again, but this time with Rock, Paper or Scissors!");
-        }
-        console.log(`Player: ${humanScore}      Computer: ${computerScore}`)
-    }
+        console.log("You've LOST the round!");
+        results.textContent = "You've LOST the round!";
+        computerScore++;
+    } 
 
-
+    console.log(`Player: ${humanScore}      Computer: ${computerScore}`)
+    score.textContent = `Player: ${humanScore}      Computer: ${computerScore}`;
 }
 
-playGame();
-
-
+let humanChoice = "";
+let computerChoice = "";
+let humanScore = 0;
+let computerScore = 0;
+let buttons = document.querySelector(".buttons");
+buttons.addEventListener("click", playRound);

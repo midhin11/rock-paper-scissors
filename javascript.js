@@ -78,7 +78,7 @@ function playRound(e){
             results.textContent = "";
             score.textContent = "";
             comment.textContent = "";
-            matchResult.textContent = "";
+            matchResult.textContent = "The heavens await your move.";
             game.removeChild(newGameBtn);
             return;
         })

@@ -13,11 +13,12 @@ function getComputerChoice() {
 }
 
 function getHumanChoice(e) {
-    if((e.target.id) === "rock") {
+    
+    if((e.target.closest("button").id) === "rock") {
         humanChoice = "rock"
-    } else if (e.target.id === "paper") {
+    } else if (e.target.closest("button").id === "paper") {
         humanChoice = "paper";
-    } else if (e.target.id === "scissors"){
+    } else if (e.target.closest("button").id === "scissors"){
         humanChoice = "scissors";
     }
     return humanChoice;
@@ -32,37 +33,44 @@ function playRound(e){
     computerChoice = getComputerChoice();
 
     console.log(`\nYou've chosen ${humanChoice} and your opponent has picked ${computerChoice}!`)  //console
-    comment.textContent = `You've chosen ${humanChoice} and your opponent has picked ${computerChoice}`;
+    comment.textContent = `You offered ${humanChoice.toUpperCase()} to the heavens... and the GOD chose ${computerChoice.toUpperCase()}.`;
     
     if ((humanChoice == "rock" && computerChoice == "rock") || 
     (humanChoice == "paper" && computerChoice == "paper") || 
     (humanChoice == "scissors" && computerChoice == "scissors")){
         console.log("The round is a tie!");  //console
-        results.textContent = "The round is a tie!";
+        results.textContent = "Even fate hesitates. A stalemate between man and god.";
     } else if ((humanChoice == "rock" && computerChoice == "scissors") || 
     (humanChoice == "paper" && computerChoice == "rock") || 
     (humanChoice == "scissors" && computerChoice == "paper")) {
         console.log("You've won the round!");  //console
-        results.textContent = "You've won the round!";
+        results.textContent = "A mortal dares to challenge destiny... impressive.";
         humanScore++;
     } else if ((humanChoice == "rock" && computerChoice == "paper") || 
     (humanChoice == "paper" && computerChoice == "scissors") || 
         (humanChoice == "scissors" && computerChoice == "rock")){
         console.log("You've LOST the round!");  //console
-        results.textContent = "You've LOST the round!";
+        results.textContent = "Predictable. You can’t outwit the divine.";
         computerScore++;
     } 
 
     console.log(`Player: ${humanScore}      Computer: ${computerScore}`)  //console
-    score.textContent = `Player: ${humanScore}      Computer: ${computerScore}`;
+    score.textContent = `Mortal: ${humanScore} | God: ${computerScore}`;
 
     if(humanScore === 5 || computerScore === 5){
         let allbuttons = document.querySelectorAll("button");
         allbuttons.forEach(btn => btn.disabled = true);
-        let body = document.querySelector("body");
+        let matchResult = document.querySelector(".pick");
+        if(humanScore === 5) {
+            matchResult.textContent = `Impossible... the mortal has defied the heavens. But remember — gods never stay defeated.`
+        } else {
+            matchResult.textContent = `As it was written. You fought bravely, but destiny bends to me alone.`
+        }
+        let game = document.querySelector(".game");
         let newGameBtn = document.createElement("button");
-        newGameBtn.textContent = "New Game"
-        body.append(newGameBtn);
+        newGameBtn.textContent = "Defy Again!"
+        newGameBtn.setAttribute("class", "newGameBtn");
+        game.append(newGameBtn);
         newGameBtn.addEventListener("click", () => {
             humanScore = 0;
             computerScore = 0;
@@ -70,7 +78,8 @@ function playRound(e){
             results.textContent = "";
             score.textContent = "";
             comment.textContent = "";
-            body.removeChild(newGameBtn);
+            matchResult.textContent = "";
+            game.removeChild(newGameBtn);
             return;
         })
     }

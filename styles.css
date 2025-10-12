@@ -1,0 +1,120 @@
+body {
+    background-color: oklch(29.3% 0.066 243.157);
+    color: bisque;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body > *{
+    /* border: 1px solid bisque; */
+}
+
+.header {
+    height: 12%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: bisque;
+    color: oklch(29.3% 0.066 243.157);;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 0;
+    padding: 0;
+    padding-top: 7px;
+}
+
+p.tag {
+    padding: 0;
+    margin: 3px;
+    font-size: 14px;
+}
+
+p.pick {
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 30;
+    /* border: 1px solid red; */
+}
+
+.game {
+    height: 81%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.comment, .results, .score, .match {
+    margin-bottom: 5px;
+}   
+
+.buttons {
+    margin: 30px auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.buttons > * {
+    width: 140px;
+    height: 140px;
+    background-color: oklch(94.1% 0.03 12.58);
+    color: oklch(29.3% 0.066 243.157);
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.buttons > *:hover {
+    background-color: transparent;
+    border: 1px solid bisque;
+    transition: 300ms;
+    scale: 1.02;
+}
+
+img {
+    width: 80px;
+}
+
+.results {
+    margin-bottom: 30px;
+}
+
+.newGameBtn {
+    height: 35px;
+    width: 100px;
+    margin: 28px auto; 
+    border-radius: 5px;
+    background-color: transparent;
+    color: bisque;
+    border: 1px solid bisque;
+    font-weight: 600;
+    border-radius: 7px;
+}
+
+.newGameBtn:hover {
+    background-color: bisque;
+    color: oklch(29.3% 0.066 243.157);
+    transition: 300ms;
+    scale: 1.1;
+}
+
+button {
+    cursor: pointer;
+}
+
+.footer {
+    height: 7%;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    color: oklch(29.3% 0.066 243.157);
+    font-weight: 700;
+}
+
+
